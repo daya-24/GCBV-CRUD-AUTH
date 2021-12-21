@@ -1,0 +1,31 @@
+{% extends  'layout.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title >Login Page</title>
+{% endblock %}
+
+{% block content %}
+    <h1 style="...">Login</h1>
+    <div class="container" style="width:40%;">
+        <form method="post" class="jumbotron">
+            {% csrf_token %}
+            <label for="username"> Enter Username</label>
+            <input type="text" id="username" name="username" class="form-control">
+            <br>
+            <label for="password">Enter Password</label>
+            <input type="password" id="password" name="password" class="form-control">
+            <br>
+
+            <input type="submit" value="Login" class="btn btn-primary">
+            <br>
+
+            {% for msg in messages %}
+                <p style="color:red">{{msg}}</p>
+            {% endfor %}
+
+
+
+        </form>
+    </div>
+{% endblock %}
